@@ -1,31 +1,45 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
 
 const Hero = () => (
   <section
     id="hero"
-    className="relative flex flex-col items-center justify-center min-h-[70vh] bg-gradient-to-b from-bruin-navy via-bruin-navy to-bruin-gold text-white text-center px-4 py-16"
+    className="relative min-h-screen flex flex-col justify-center items-center bg-bruin-navy overflow-hidden"
   >
-    <div className="absolute top-6 left-6">
-      <Image src="/assets/bruin-bear.webp" alt="SLCC Bruins Logo" width={64} height={64} className="drop-shadow-xl" priority />
+    {/* Background image with overlay */}
+    <div className="absolute inset-0 z-0">
+      <Image
+        src="/assets/makaila-headshot.webp"
+        alt="Makaila Schneider Hero"
+        fill
+        className="object-cover object-center w-full h-full opacity-80"
+        priority
+      />
+      <div className="absolute inset-0 bg-bruin-navy/80" />
     </div>
-    <div className="relative w-40 h-40 sm:w-56 sm:h-56 mb-6 rounded-full overflow-hidden border-4 border-bruin-gold shadow-xl bg-white flex items-center justify-center">
-      <Image src="/assets/makaila-headshot.webp" alt="Makaila Schneider Headshot" fill className="object-cover" priority />
+    {/* Content */}
+    <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 animate-fadeIn">
+      <h1 className="text-4xl sm:text-6xl font-heading font-bold text-white mb-4 drop-shadow-lg">
+        Makaila Schneider
+      </h1>
+      <p className="text-lg sm:text-2xl font-body text-bruin-gold font-semibold mb-2 tracking-wide uppercase">
+        SLCC Bruins | Softball Infielder | Scholar-Athlete
+      </p>
+      <p className="text-base sm:text-lg font-body text-white/90 mb-8 max-w-xl">
+        Driven. Versatile. Ready to make an impact on and off the field.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button asChild className="bg-bruin-gold text-bruin-navy font-bold px-8 py-3 rounded-full shadow-card hover:bg-white hover:text-bruin-navy border-2 border-bruin-gold transition-all text-lg">
+          <a href="#athletic-profile">View Athletic Profile</a>
+        </Button>
+        <Button asChild className="bg-white text-bruin-navy font-bold px-8 py-3 rounded-full shadow-card hover:bg-bruin-gold hover:text-bruin-navy border-2 border-bruin-gold transition-all text-lg">
+          <a href="#contact">Contact</a>
+        </Button>
+      </div>
     </div>
-    <h1 className="text-4xl sm:text-5xl font-heading font-bold mb-2">Makaila Schneider</h1>
-    <p className="text-lg sm:text-xl font-body font-medium mb-2 text-bruin-gold">SLCC Bruins | Utility Player</p>
-    <p className="text-base sm:text-lg font-body font-semibold mb-6 max-w-2xl mx-auto text-white/90">Driven student-athlete excelling on the field and in the classroom. Ready to make an impact at the next level.</p>
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <Button asChild className="bg-bruin-navy text-white border-2 border-bruin-gold hover:bg-bruin-gold hover:text-bruin-navy font-bold text-lg px-8 py-3 rounded-full shadow-lg transition">
-        <a href="#videos">Watch Highlights</a>
-      </Button>
-      <Button asChild className="bg-bruin-gold text-bruin-navy border-2 border-bruin-navy hover:bg-bruin-navy hover:text-bruin-gold font-bold text-lg px-8 py-3 rounded-full shadow-lg transition">
-        <a href="#resume">View Resume</a>
-      </Button>
-      <Button asChild className="bg-white text-bruin-navy border-2 border-bruin-gold hover:bg-bruin-gold hover:text-white font-bold text-lg px-8 py-3 rounded-full shadow-lg transition">
-        <a href="#contact">Contact</a>
-      </Button>
+    {/* Scroll indicator */}
+    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+      <span className="block w-2 h-8 bg-bruin-gold rounded-full opacity-80" />
     </div>
   </section>
 );

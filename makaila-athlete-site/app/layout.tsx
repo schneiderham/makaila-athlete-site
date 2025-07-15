@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import StickyNav from "../components/StickyNav";
 
 export const metadata: Metadata = {
   title: "Makaila Schneider | SLCC Bruins Softball | Athlete Profile",
@@ -37,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased bg-white text-[#00205B] font-inter min-h-screen flex flex-col">
+        <StickyNav />
         <main className="flex-1 w-full max-w-5xl mx-auto px-4 flex flex-col items-center justify-start">
           {children}
         </main>
