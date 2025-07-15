@@ -25,7 +25,7 @@ const typeIcon = (type: string) => {
 };
 
 const AwardsCerts = () => (
-  <section id="honors-awards" className="w-full max-w-5xl mx-auto py-20 px-4 animate-fadeIn">
+  <section id="awards" className="w-full max-w-5xl mx-auto py-20 px-4 animate-fadeIn">
     <h2 className="text-3xl sm:text-4xl font-heading font-bold text-bruin-navy mb-4 text-center">Honors & Awards</h2>
     <div className="w-16 h-1 bg-bruin-gold mx-auto mb-8 rounded-full" />
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
