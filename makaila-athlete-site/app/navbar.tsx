@@ -1,8 +1,15 @@
 "use client";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  // Remove all dark mode toggle button code and related state/hooks
+
+  useEffect(() => {
+    // Remove all dark mode toggle button code and related state/hooks
+  }, []);
+
   return (
     <nav className="w-full flex items-center justify-between py-4 px-6 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-black sticky top-0 z-50">
       <div className="font-bold text-lg text-blue-900 dark:text-yellow-400">Makaila Schneider</div>
@@ -12,8 +19,7 @@ export default function Navbar() {
         <a href="#videos" className="hover:underline">Videos</a>
         <a href="#gallery" className="hover:underline">Gallery</a>
         <a href="#contact" className="hover:underline">Contact</a>
-        {/* Dark mode toggle placeholder */}
-        <button className="ml-4 px-2 py-1 rounded bg-blue-900 text-white dark:bg-yellow-400 dark:text-black">🌓</button>
+        {/* Remove all dark mode toggle button code and related state/hooks */}
       </div>
       {/* Hamburger menu for mobile */}
       <button
@@ -33,8 +39,7 @@ export default function Navbar() {
           <a href="#videos" className="py-2 w-full text-center hover:underline" onClick={() => setMenuOpen(false)}>Videos</a>
           <a href="#gallery" className="py-2 w-full text-center hover:underline" onClick={() => setMenuOpen(false)}>Gallery</a>
           <a href="#contact" className="py-2 w-full text-center hover:underline" onClick={() => setMenuOpen(false)}>Contact</a>
-          {/* Dark mode toggle placeholder */}
-          <button className="mt-4 px-2 py-1 rounded bg-blue-900 text-white dark:bg-yellow-400 dark:text-black">🌓</button>
+          {/* Remove all dark mode toggle button code and related state/hooks */}
         </div>
       )}
     </nav>
