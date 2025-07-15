@@ -1,17 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Makaila Schneider | SLCC Bruins Softball | Athlete Profile",
@@ -48,22 +36,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* Navbar placeholder */}
-        <Navbar />
-        <main className="min-h-screen flex flex-col items-center justify-center">
+      <body className="antialiased bg-white text-[#00205B] font-inter min-h-screen flex flex-col">
+        <main className="flex-1 w-full max-w-5xl mx-auto px-4 flex flex-col items-center justify-start">
           {children}
         </main>
-        {/* Footer placeholder */}
-        <footer className="w-full py-6 flex flex-col items-center border-t border-[#0033A0] dark:border-[#FFC72C] mt-8 bg-white/80 dark:bg-black/60">
+        <footer className="w-full py-8 flex flex-col items-center border-t-4 border-[#FFC72C] mt-8 bg-white">
           <div className="flex space-x-6 mb-2">
-            <a href="https://twitter.com/SoftballMakaila" target="_blank" rel="noopener noreferrer" className="text-[#0033A0] dark:text-[#FFC72C] hover:underline font-bold">Twitter</a>
-            <a href="https://instagram.com/makailasoftball24" target="_blank" rel="noopener noreferrer" className="text-[#0033A0] dark:text-[#FFC72C] hover:underline font-bold">Instagram</a>
-            <a href="#" className="text-[#0033A0] dark:text-[#FFC72C] hover:underline font-bold">SportsRecruits</a>
+            <a href="https://twitter.com/SoftballMakaila" target="_blank" rel="noopener noreferrer" className="text-[#00205B] hover:text-[#FFC72C] font-bold transition">Twitter</a>
+            <a href="https://instagram.com/makailasoftball24" target="_blank" rel="noopener noreferrer" className="text-[#00205B] hover:text-[#FFC72C] font-bold transition">Instagram</a>
+            <a href="#" className="text-[#00205B] hover:text-[#FFC72C] font-bold transition">SportsRecruits</a>
+            <a href="#" className="text-[#00205B] hover:text-[#FFC72C] font-bold transition">SLCC Bruins Profile</a>
           </div>
-          <div className="text-xs text-[#0033A0] dark:text-[#FFC72C]">&copy; {new Date().getFullYear()} Makaila Schneider. All rights reserved.</div>
+          <div className="text-xs text-[#00205B]">&copy; {new Date().getFullYear()} Makaila Schneider. All rights reserved.</div>
         </footer>
       </body>
     </html>

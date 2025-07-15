@@ -7,7 +7,17 @@ module.exports = {
     './public/**/*.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'bruin-navy': '#00205B',
+        'bruin-gold': '#FFC72C',
+        'bruin-white': '#FFFFFF',
+      },
+      fontFamily: {
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 }; 
