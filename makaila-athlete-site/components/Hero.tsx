@@ -36,11 +36,11 @@ const Hero = () => (
       {/* Player image on the right */}
       <div className="flex-1 flex items-center justify-center relative w-full h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] max-w-6xl">
         <Image
-          src="/assets/L1Q_1940_compressed-removebg-preview.png"
+          src="/assets/Mak_profile_bat_transparent.png"
           width={4}
           height={6}
           layout="responsive"
-          className="object-contain object-center scale-[1.6]"  // Increase size further
+          className="object-contain object-center scale-[1.1]"  // Increase size further
           alt="Makaila Schneider Floating Hero"
           priority          
         />
