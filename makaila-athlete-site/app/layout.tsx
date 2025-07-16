@@ -39,7 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased bg-white text-[#00205B] font-inter min-h-screen flex flex-col">
         <StickyNav />
-        <main className="flex-1 w-full max-w-5xl mx-auto px-4 flex flex-col items-center justify-start">
+        <main className="flex-1 w-full mx-auto px-4 flex flex-col items-center justify-start">
           {children}
         </main>
         <footer className="w-full py-8 flex flex-col items-center border-t-4 border-[#FFC72C] mt-8 bg-white">
