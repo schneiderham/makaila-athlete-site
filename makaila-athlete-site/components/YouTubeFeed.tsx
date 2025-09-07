@@ -198,7 +198,7 @@ const YouTubeFeed = () => {
               Watch Makaila's Highlights on YouTube
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              See Makaila's latest game highlights, skills demos, and training clips as she develops at SLCC.
+              Game highlights, skills demos, and training clips as she develops at SLCC.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <a
@@ -226,58 +226,6 @@ const YouTubeFeed = () => {
         </div>
       )}
       
-      {/* Call to Action Section */}
-      {videos.length > 0 && (
-        <div className="mt-12 text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-bruin-navy mr-4">
-                <img 
-                  src={channelInfo?.snippet?.thumbnails?.high?.url || "/assets/makaila-headshot.webp"} 
-                  alt="Makaila Schneider" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="text-left">
-                <h3 className="text-2xl font-heading font-bold text-bruin-navy">
-                  Watch More of Makaila's Highlights
-                </h3>
-                <p className="text-gray-600">Softball Player & Student Athlete</p>
-              </div>
-            </div>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Explore Makaila's complete collection of game highlights, skills demonstrations, and training videos. 
-              See her athletic development and performance across different games and seasons.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={`https://www.youtube.com/channel/${getSanitizedChannelId(videos[0]?.snippet?.channelId)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors duration-200"
-                style={{ opacity: 1, visibility: 'visible', display: 'inline-flex' }}
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-                Visit Makaila's YouTube Channel
-              </a>
-              <a
-                href={`https://www.youtube.com/playlist?list=${YOUTUBE_PLAYLIST_ID ?? ''}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-bruin-navy text-white font-semibold rounded-lg transition-colors duration-200"
-                style={{ opacity: 1, visibility: 'visible', display: 'inline-flex' }}
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                View All Game Highlights
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
