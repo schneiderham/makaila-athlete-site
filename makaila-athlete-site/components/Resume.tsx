@@ -14,14 +14,15 @@ const resumeSections = [
     items: [
       "SLCC Bruins Softball, Utility Player, #17 (2023–present)",
       "White Rock Renegades, Canadian U17 Nationals Bronze Medalist",
-      "USSSA All-American Selection"
+      "Canadian U19 Nationals – Gold (Fusion 2006)"
     ]
   },
   {
     title: "Work Experience",
     items: [
       "Lifeguard & Swim Instructor, Chilliwack Leisure Centre (2022–2023)",
-      "Softball Camp Volunteer Coach, Chilliwack Minor Softball"
+      "Softball Camp Volunteer Coach, Chilliwack Minor Softball",
+      "Server at Sidekick Brewing"
     ]
   },
   {
