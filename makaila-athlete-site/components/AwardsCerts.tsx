@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { FaTrophy, FaCertificate, FaMedal, FaStar } from "react-icons/fa";
 
 const honors = [
-  { title: "Region 18 Tournament Impact (SLCC)", year: "2025", type: "Athletic", description: "Walk off HR and 3 RBIs vs Snow College." },
+  { title: "Region 18 Tournament Impact (SLCC)", year: "2025", type: "Athletic", description: "HR and double in tournament opener; Walk off HR and 3 RBIs vs Snow College." },
   { title: "Canadian U19 Nationals – Gold (Fusion 2006)", year: "2025", type: "Athletic", description: "Key contributor at 2B/3B; fielded 1.000 across provincials and nationals." },
   { title: "Regular Season OPS 1.015 (SLCC)", year: "2025", type: "Athletic", description: ".300 AVG with 8 HR, 33 RBI, 16 XBH, 5–5 SB." },
   { title: "Canadian U17 Nationals – Bronze (White Rock Renegades '06)", year: "2022", type: "Athletic", description: "Led offense with 3 hits in key nationals game." },
