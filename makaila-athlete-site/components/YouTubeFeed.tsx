@@ -29,6 +29,12 @@ const YouTubeFeed = () => {
   const [videos, setVideos] = useState<Video[]>([]);
   const [channelInfo, setChannelInfo] = useState<ChannelInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
+  
+  // Normalize channel ID to avoid Unicode hyphen issues (U+2011)
+  const getSanitizedChannelId = (fallback?: string) => {
+    const raw = (YOUTUBE_CHANNEL_ID as string) || fallback || "";
+    return raw.replace(/\u2011/g, '-');
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -121,6 +127,18 @@ const YouTubeFeed = () => {
     document.body.appendChild(script);
   }, []);
 
+  // Re-render the YouTube subscribe widget whenever videos load or script is present
+  useEffect(() => {
+    try {
+      const gapi = (window as any)?.gapi;
+      if (gapi?.ytsubscribe?.go) {
+        gapi.ytsubscribe.go();
+      }
+    } catch (_) {
+      // No-op: widget will remain with fallback link
+    }
+  }, [videos]);
+
   return (
     <section id="videos" className="w-full max-w-7xl mx-auto py-12 px-4">
       <div className="text-center mb-12">
@@ -192,7 +210,8 @@ const YouTubeFeed = () => {
         </div>
       )}
       
-      {/* Enhanced Subscribe Section */}
+      {/* Enhanced Subscribe Section */
+      }
       {videos.length > 0 && (
         <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 rounded-2xl p-8 text-center shadow-xl">
           <div className="max-w-2xl mx-auto">
@@ -206,12 +225,25 @@ const YouTubeFeed = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <div
                 className="g-ytsubscribe"
-                data-channelid={(YOUTUBE_CHANNEL_ID as string) || videos[0]?.snippet?.channelId || ""}
+                data-channelid={getSanitizedChannelId(videos[0]?.snippet?.channelId)}
                 data-layout="full"
                 data-count="default"
                 data-theme="dark"
                 style={{ opacity: 1, visibility: 'visible', display: 'block' }}
               ></div>
+              {/* Fallback visible Subscribe button */}
+              <a
+                href={`https://www.youtube.com/channel/${getSanitizedChannelId(videos[0]?.snippet?.channelId)}?sub_confirmation=1`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors duration-200"
+                style={{ opacity: 1, visibility: 'visible', display: 'inline-flex' }}
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                Subscribe on YouTube
+              </a>
               <div className="text-white text-sm opacity-90">
                 <p className="mb-1">✓ Get instant notifications</p>
                 <p className="mb-1">✓ Never miss new content</p>
@@ -247,7 +279,7 @@ const YouTubeFeed = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href={`https://www.youtube.com/channel/${encodeURIComponent(((YOUTUBE_CHANNEL_ID as string) || videos[0]?.snippet?.channelId) || '').replace('%E2%80%91','-')}`}
+                href={`https://www.youtube.com/channel/${getSanitizedChannelId(videos[0]?.snippet?.channelId)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors duration-200"
