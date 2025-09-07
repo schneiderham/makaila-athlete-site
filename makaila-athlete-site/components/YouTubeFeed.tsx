@@ -33,33 +33,70 @@ const YouTubeFeed = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!YOUTUBE_API_KEY || !YOUTUBE_PLAYLIST_ID) {
-          console.log('Missing API key or playlist ID', { YOUTUBE_API_KEY, YOUTUBE_PLAYLIST_ID });
-          setError('Missing YouTube API configuration');
+        if (!YOUTUBE_API_KEY) {
+          setError('Missing YouTube API key');
           return;
         }
 
-        // Fetch videos
-        const videosUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=3&playlistId=${YOUTUBE_PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`;
-        const videosRes = await fetch(videosUrl);
-        const videosData = await videosRes.json();
-        console.log('YouTube API response:', videosData);
-        
-        if (videosData.error) {
-          console.error('YouTube API error:', videosData.error);
-          setError(`YouTube API Error: ${videosData.error.message || 'Unknown error'}`);
+        let fetchedVideos: Video[] = [];
+        let primaryError: string | null = null;
+
+        // 1) Try playlist first if provided
+        if (YOUTUBE_PLAYLIST_ID) {
+          try {
+            const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=3&playlistId=${YOUTUBE_PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`;
+            const res = await fetch(playlistUrl);
+            const data = await res.json();
+            if (!data.error && Array.isArray(data.items) && data.items.length > 0) {
+              fetchedVideos = data.items;
+            } else {
+              primaryError = data?.error?.message || 'Playlist returned no items';
+            }
+          } catch (e: any) {
+            primaryError = e?.message || 'Playlist request failed';
+          }
+        }
+
+        // 2) Fallback to channel search if no videos from playlist
+        if (fetchedVideos.length === 0 && YOUTUBE_CHANNEL_ID) {
+          try {
+            const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${encodeURIComponent(
+              YOUTUBE_CHANNEL_ID
+            )}&order=date&maxResults=3&type=video&key=${YOUTUBE_API_KEY}`;
+            const res = await fetch(searchUrl);
+            const data = await res.json();
+            if (!data.error && Array.isArray(data.items) && data.items.length > 0) {
+              // Normalize to Video shape with resourceId.videoId
+              fetchedVideos = data.items.map((item: any) => ({
+                snippet: {
+                  title: item.snippet.title,
+                  resourceId: { videoId: item.id.videoId },
+                  thumbnails: { medium: { url: item.snippet?.thumbnails?.medium?.url } },
+                  channelId: item.snippet.channelId,
+                },
+              }));
+            } else if (!primaryError) {
+              primaryError = data?.error?.message || 'Channel search returned no items';
+            }
+          } catch (e: any) {
+            if (!primaryError) primaryError = e?.message || 'Channel search request failed';
+          }
+        }
+
+        if (fetchedVideos.length === 0) {
+          setError(primaryError || 'No videos found. Check playlist/channel settings.');
+          setVideos([]);
           return;
         }
-        
-        setVideos(videosData.items || []);
 
-        // Fetch channel info if we have videos
-        if (videosData.items && videosData.items.length > 0) {
-          const channelId = videosData.items[0].snippet.channelId;
-          const channelUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${YOUTUBE_API_KEY}`;
+        setVideos(fetchedVideos);
+
+        // Fetch channel info using explicit env first, else from first video
+        const channelIdForInfo = YOUTUBE_CHANNEL_ID || fetchedVideos[0]?.snippet?.channelId;
+        if (channelIdForInfo) {
+          const channelUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelIdForInfo}&key=${YOUTUBE_API_KEY}`;
           const channelRes = await fetch(channelUrl);
           const channelData = await channelRes.json();
-          
           if (channelData.items && channelData.items.length > 0) {
             setChannelInfo(channelData.items[0]);
           }
@@ -169,7 +206,7 @@ const YouTubeFeed = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <div
                 className="g-ytsubscribe"
-                data-channelid={videos[0]?.snippet?.channelId || ""}
+                data-channelid={(YOUTUBE_CHANNEL_ID as string) || videos[0]?.snippet?.channelId || ""}
                 data-layout="full"
                 data-count="default"
                 data-theme="dark"
@@ -209,7 +246,7 @@ const YouTubeFeed = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href={`https://www.youtube.com/channel/${videos[0]?.snippet?.channelId}`}
+                href={`https://www.youtube.com/channel/${(YOUTUBE_CHANNEL_ID as string) || videos[0]?.snippet?.channelId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors duration-200"
@@ -220,7 +257,7 @@ const YouTubeFeed = () => {
                 Visit Makaila's YouTube Channel
               </a>
               <a
-                href={`https://www.youtube.com/playlist?list=${process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ID}`}
+                href={`https://www.youtube.com/playlist?list=${YOUTUBE_PLAYLIST_ID ?? ''}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-bruin-navy hover:bg-blue-800 text-white font-semibold rounded-lg transition-colors duration-200"
