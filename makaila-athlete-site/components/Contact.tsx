@@ -13,9 +13,30 @@ const Contact = () => {
       <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-8 text-bruin-navy text-center">Contact</h2>
       <form
         className="bg-white border-2 border-bruin-gold rounded-xl shadow-lg p-8 flex flex-col gap-6"
-        onSubmit={e => {
+        onSubmit={async e => {
           e.preventDefault();
-          setSubmitted(true);
+          const form = e.currentTarget as HTMLFormElement;
+          const formData = new FormData(form);
+          const payload = {
+            name: String(formData.get('name') || ''),
+            email: String(formData.get('email') || ''),
+            message: String(formData.get('message') || ''),
+          };
+          try {
+            const res = await fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            if (res.ok) {
+              setSubmitted(true);
+              form.reset();
+            } else {
+              alert('Message failed to send. Please try again later.');
+            }
+          } catch (err) {
+            alert('Message failed to send. Please try again later.');
+          }
         }}
       >
         <Input type="text" name="name" placeholder="Your Name" required className="bg-white border-bruin-navy text-bruin-navy font-body" />
