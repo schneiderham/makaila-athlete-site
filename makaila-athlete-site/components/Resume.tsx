@@ -42,7 +42,7 @@ const Resume = () => (
     <div className="w-16 h-1 bg-bruin-gold mx-auto mb-8 rounded-full" />
     <div className="flex justify-center mb-8">
       <Button asChild className="bg-bruin-gold text-bruin-navy font-bold px-8 py-3 rounded-full shadow hover:bg-bruin-navy hover:text-bruin-gold border-2 border-bruin-navy transition flex items-center gap-2">
-        <a href="/assets/SA/FDSA/Makaila%20Victoria%20Schneider.docx.pdf" target="_blank" rel="noopener noreferrer">
+        <a href="/assets/Resume/Makaila%20Schneider%20Resume%202025.pdf" target="_blank" rel="noopener noreferrer">
           <FaDownload className="inline-block mr-2" /> Download PDF Resume
         </a>
       </Button>

@@ -30,9 +30,6 @@ const AthleticProfile = () => (
     </div>
     <YouTubeFeed />
     <div className="flex flex-col gap-4 items-center md:items-start mt-8">
-      <Button asChild className="bg-bruin-gold text-bruin-navy font-bold px-8 py-3 rounded-full shadow-card hover:bg-white hover:text-bruin-navy border-2 border-bruin-gold transition-all text-lg">
-        <a href="/assets/SA/FDSA/Makaila%20Victoria%20Schneider.docx.pdf" target="_blank" rel="noopener noreferrer">Download Full Stats</a>
-      </Button>
       <Button asChild className="bg-white text-bruin-navy font-bold px-8 py-3 rounded-full shadow-card hover:bg-bruin-gold hover:text-bruin-navy border-2 border-bruin-gold transition-all text-lg">
         <a href="#videos">Watch More Highlights</a>
       </Button>

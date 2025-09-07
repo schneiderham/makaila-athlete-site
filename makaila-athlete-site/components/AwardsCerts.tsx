@@ -7,7 +7,7 @@ const honors = [
   { title: "Regular Season OPS 1.015 (SLCC)", year: "2025", type: "Athletic", description: ".300 AVG with 8 HR, 33 RBI, 16 XBH, 5–5 SB." },
   { title: "Canadian U17 Nationals – Bronze (White Rock Renegades '06)", year: "2022", type: "Athletic", description: "Led offense with 3 hits in key nationals game." },
   { title: "4-Year Honor Roll (Yale Secondary)", year: "2024", type: "Academic", description: "Consistent academic excellence throughout high school." },
-  { title: "Frank Demaris Volunteer Spirit Award", year: "2024", type: "Leadership", description: "Outstanding citizenship and community service.", link: "/assets/SA/FDSA/Frank%20Demaris%20Volunteer%20Spirit%20Award.pdf" },
+  { title: "Frank Demaris Volunteer Spirit Award", year: "2024", type: "Leadership", description: "Outstanding citizenship and community service.", link: "/assets/SA/FDSA/Makaila%20Victoria%20Schneider.docx.pdf" },
 ];
 
 const certs = [
