@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
       auth: { user: smtpUser, pass: smtpPass },
     });
 
-    const toAddress = "schneidermakaila@gmail.com";
+    const toAddress = "makailaschneider2024@gmail.com";
     const bccAddress = "schneiderham@gmail.com";
 
     await transporter.sendMail({
