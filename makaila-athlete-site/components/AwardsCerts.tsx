@@ -7,6 +7,7 @@ const honors = [
   { title: "Regular Season OPS 1.015 (SLCC)", year: "2025", type: "Athletic", description: ".300 AVG with 8 HR, 33 RBI, 16 XBH, 5–5 SB." },
   { title: "Canadian U17 Nationals – Bronze (White Rock Renegades '06)", year: "2022", type: "Athletic", description: "Led offense with 3 hits in key nationals game." },
   { title: "4-Year Honor Roll (Yale Secondary)", year: "2024", type: "Academic", description: "Consistent academic excellence throughout high school." },
+  { title: "Frank Demaris Volunteer Spirit Award", year: "2024", type: "Leadership", description: "Outstanding citizenship and community service.", link: "/assets/SA/FDSA/Frank%20Demaris%20Volunteer%20Spirit%20Award.pdf" },
 ];
 
 const certs = [
@@ -37,7 +38,15 @@ const AwardsCerts = () => (
             <span className="bg-bruin-gold text-bruin-navy text-xs font-bold px-3 py-1 rounded-full ml-auto">{item.type}</span>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col justify-between">
-            <div className="text-bruin-navy text-sm font-body mb-2">{item.description}</div>
+            <div className="text-bruin-navy text-sm font-body mb-2">
+              {item.description}
+              {item.link && (
+                <>
+                  {" "}
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-bruin-gold font-semibold underline">View document</a>
+                </>
+              )}
+            </div>
             <div className="text-bruin-gold text-xs font-semibold font-body mt-auto">{item.year}</div>
           </CardContent>
         </Card>

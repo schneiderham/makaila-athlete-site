@@ -246,7 +246,7 @@ const YouTubeFeed = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href={`https://www.youtube.com/channel/${(YOUTUBE_CHANNEL_ID as string) || videos[0]?.snippet?.channelId}`}
+                href={`https://www.youtube.com/channel/${encodeURIComponent(((YOUTUBE_CHANNEL_ID as string) || videos[0]?.snippet?.channelId) || '').replace('%E2%80%91','-')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors duration-200"
@@ -260,7 +260,7 @@ const YouTubeFeed = () => {
                 href={`https://www.youtube.com/playlist?list=${YOUTUBE_PLAYLIST_ID ?? ''}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-bruin-navy hover:bg-blue-800 text-white font-semibold rounded-lg transition-colors duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-bruin-navy text-white font-semibold rounded-lg transition-colors duration-200"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
