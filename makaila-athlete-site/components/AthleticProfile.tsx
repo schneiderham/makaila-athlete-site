@@ -2,15 +2,18 @@ import { Button } from "./ui/button";
 import YouTubeFeed from "./YouTubeFeed";
 
 const stats = [
-  { label: "Position", value: "Infielder" },
-  { label: "Height", value: "5'7\"" },
-  { label: "Weight", value: "135 lbs" },
+  { label: "Positions", value: "INF (2B/SS/3B)" },
+  { label: "Height", value: "5'3\"" },
   { label: "Throws/Bats", value: "Right/Right" },
-  { label: "GPA", value: "3.8" },
-  { label: "Graduation Year", value: "2025" },
-  { label: "Batting Avg.", value: ".412" },
-  { label: "OBP", value: ".489" },
-  { label: "SB", value: "18" },
+  { label: "School", value: "SLCC Bruins" },
+  { label: "HS", value: "Yale Secondary '24" },
+  { label: "Regular Season AVG", value: ".300" },
+  { label: "Regular Season OPS", value: "1.015" },
+  { label: "HR / RBI", value: "8 / 33" },
+  { label: "SB", value: "5/5" },
+  { label: "XBH (Reg.)", value: "16" },
+  { label: "Fall AVG / OPS", value: ".500 / 1.528" },
+  { label: "Preseason AVG / OPS", value: ".412 / 1.299" },
 ];
 
 const AthleticProfile = () => (

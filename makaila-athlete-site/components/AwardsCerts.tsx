@@ -2,16 +2,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { FaTrophy, FaCertificate, FaMedal, FaStar } from "react-icons/fa";
 
 const honors = [
-  { title: "Frank Demaris Citizenship Award", year: "2024", type: "Leadership", description: "Outstanding leadership, character, and community service." },
-  { title: "4 Year Honor Roll (High School)", year: "2023", type: "Academic", description: "Consistent academic excellence throughout high school." },
-  { title: "Leadership Award", year: "2023", type: "Leadership", description: "Recognized for team leadership and positive influence." },
-  { title: "Canadian U17 Nationals Bronze", year: "2022", type: "Athletic", description: "Bronze medalist at Canadian U17 Nationals." },
-  { title: "USSSA All-American Selection", year: "2021", type: "Athletic", description: "Selected as USSSA All-American." },
+  { title: "Region 18 Tournament Impact (SLCC)", year: "2025", type: "Athletic", description: "HR and double in tournament opener; 3 RBIs vs Snow College." },
+  { title: "Canadian U19 Nationals – Gold (Fusion 2006)", year: "2025", type: "Athletic", description: "Key contributor at 2B/3B; fielded 1.000 across provincials and nationals." },
+  { title: "Regular Season OPS 1.015 (SLCC)", year: "2025", type: "Athletic", description: ".300 AVG with 8 HR, 33 RBI, 16 XBH, 5–5 SB." },
+  { title: "Canadian U17 Nationals – Bronze (White Rock Renegades '06)", year: "2022", type: "Athletic", description: "Led offense with 3 hits in key nationals game." },
+  { title: "4-Year Honor Roll (Yale Secondary)", year: "2024", type: "Academic", description: "Consistent academic excellence throughout high school." },
 ];
 
 const certs = [
-  { title: "First Aid Certified", year: "2023", type: "Certification" },
   { title: "Bronze Cross Lifeguard", year: "2023", type: "Certification" },
+  { title: "Standard First Aid / CPR", year: "2023", type: "Certification" },
 ];
 
 const typeIcon = (type: string) => {

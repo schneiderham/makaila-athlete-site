@@ -29,8 +29,15 @@ const Contact = () => {
         <div className="mt-6 text-center text-bruin-gold font-heading font-bold">Thank you! Your message has been sent.</div>
       )}
       <div className="text-center text-bruin-navy mt-8">
-        <p className="font-semibold font-body">For recruiting inquiries, please use the form above or email:</p>
-        <a href="mailto:makailaschneider@email.com" className="text-bruin-gold font-bold underline">makailaschneider@email.com</a>
+        <p className="font-semibold font-body">For recruiting inquiries, please contact:</p>
+        <div className="bg-bruin-navy/5 border-2 border-bruin-gold rounded-xl p-4 mt-3">
+          <div className="font-heading font-bold">Cyndee Bennett – Head Softball Coach, Salt Lake CC</div>
+          <div className="font-body"><a className="text-bruin-gold font-bold underline" href="mailto:cyndee.bennett@slcc.edu">cyndee.bennett@slcc.edu</a> | <a className="text-bruin-gold font-bold underline" href="tel:+18019574745">801-957-4745</a></div>
+          <div className="text-sm text-bruin-navy/80 mt-1">Coach Bennett can speak to Makaila’s role, work ethic, and growth.</div>
+        </div>
+        <div className="mt-4">
+          Or reach Makaila directly via <a href="https://x.com/SoftballMakaila" target="_blank" rel="noopener noreferrer" className="text-bruin-gold font-bold underline">X (@SoftballMakaila)</a> or her SportsRecruits profile.
+        </div>
       </div>
     </section>
   );

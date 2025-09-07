@@ -7,10 +7,10 @@ const Footer = () => (
       <span className="font-heading font-bold text-bruin-gold text-lg">SLCC Bruins</span>
     </div>
     <div className="flex space-x-6 mb-2">
-      <a href="https://twitter.com/SoftballMakaila" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-bruin-gold">Twitter</a>
-      <a href="https://instagram.com/makailasoftball24" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-bruin-gold">Instagram</a>
-      <a href="#" className="hover:underline font-bold text-bruin-gold">SportsRecruits</a>
-      <a href="#" className="hover:underline font-bold text-bruin-gold">SLCC Bruins Profile</a>
+      <a href="https://x.com/SoftballMakaila" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-bruin-gold">X (Twitter)</a>
+      <a href="https://www.instagram.com/makailasoftball24" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-bruin-gold">Instagram</a>
+      <a href="https://sportsrecruits.com/athlete/makaila_schneider" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-bruin-gold">SportsRecruits</a>
+      <a href="https://slccbruins.com/roster.aspx" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold text-bruin-gold">SLCC Bruins</a>
     </div>
     <div className="text-xs text-bruin-gold">&copy; {new Date().getFullYear()} Makaila Schneider. All rights reserved.</div>
   </footer>
