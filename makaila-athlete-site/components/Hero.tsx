@@ -17,8 +17,11 @@ const Hero = () => (
         <h1 className="text-4xl sm:text-6xl font-heading font-bold text-bruin-navy mb-4 leading-tight">
           Makaila Schneider
         </h1>
-        <div className="text-xl sm:text-2xl font-heading font-extrabold text-bruin-gold uppercase mb-4 tracking-wide">
+        <div className="text-xl sm:text-2xl font-heading font-extrabold text-bruin-gold uppercase mb-2 tracking-wide">
           SLCC Bruins <span className="text-bruin-navy">|</span> Softball Infielder
+        </div>
+        <div className="text-3xl sm:text-4xl font-heading font-black text-bruin-navy mb-4">
+          #11
         </div>
         <p className="text-base sm:text-lg font-body text-bruin-navy/90 mb-10 max-w-lg leading-snug">
           Driven. Versatile. Ready to make an impact on and off the field.
@@ -36,11 +39,11 @@ const Hero = () => (
       {/* Player image on the right */}
       <div className="flex-1 flex items-center justify-center relative w-full h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] max-w-6xl">
         <Image
-          src="/assets/Mak_profile_bat_transparent.png"
+          src="/assets/2025_with_ball.png"
           width={4}
           height={6}
           layout="responsive"
-          className="object-contain object-center scale-[1.1]"  // Increase size further
+          className="object-contain object-center scale-[1.5]"  // Increase size further
           alt="Makaila Schneider Floating Hero"
           priority          
         />

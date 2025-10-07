@@ -5,7 +5,7 @@ const About = () => (
     {/* Photo */}
     <div className="flex-shrink-0 w-40 h-40 md:w-56 md:h-56 rounded-2xl overflow-hidden shadow-card border-4 border-bruin-gold bg-white">
       <Image
-        src="/assets/makaila-headshot.webp"
+        src="/assets/2025_with_bat_HS.png"
         alt="Makaila Schneider Portrait"
         width={224}
         height={224}

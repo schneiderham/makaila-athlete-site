@@ -12,7 +12,7 @@ const resumeSections = [
   {
     title: "Athletic Career",
     items: [
-      "SLCC Bruins Softball, Utility Player, #17 (2023–present)",
+      "SLCC Bruins Softball, Utility Player, #11/#17 (2023–present)",
       "White Rock Renegades, Canadian U17 Nationals Bronze Medalist",
       "Canadian U19 Nationals – Gold (Fusion 2006)"
     ]
