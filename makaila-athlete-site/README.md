@@ -82,17 +82,33 @@ Workflow:
 - Use branches: `develop` for ongoing work (Preview deployments), `main` for production.
 - Each push to a branch triggers a Preview URL on Vercel.
 
-CLI commands (run from `makaila-athlete-site/`):
+### Deploying to Production
+
+**Method 1: Git-based deployment (Recommended)**
+```bash
+# 1. Switch to main branch
+git checkout main
+
+# 2. Merge develop branch into main
+git merge develop
+
+# 3. Push to main (triggers automatic production deployment)
+git push origin main
+```
+
+**Method 2: Direct CLI deployment**
 ```bash
 # Preview deployment for current branch
 npx vercel deploy --yes
 
-# Production deployment
+# Production deployment (deploys to https://makaila-athlete-site-prod.vercel.app/)
 npx vercel deploy --prod --yes
 ```
 
+**Production URL:** https://makaila-athlete-site-prod.vercel.app/
+
 Env vars on Vercel:
-- Set the same keys for both Preview and Production environments under the Vercel project (“Environment Variables”).
+- Set the same keys for both Preview and Production environments under the Vercel project ("Environment Variables").
 - If YouTube calls return 400/Bad Request, double-check the `PLAYLIST_ID` vs `API_KEY` mix-up and the channel ID hyphen.
 
 Troubleshooting
